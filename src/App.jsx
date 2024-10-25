@@ -2,6 +2,7 @@ import NavbarWithSearch from "./components/Navbar";
 import Hero from "./components/Hero";
 import CardList from "./components/CardList";
 import AccordionFAQ from "./components/AccordionFAQ";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Hero />
       <CardList />
       <AccordionFAQ />
+      <Footer />
     </div>
   );
 }
