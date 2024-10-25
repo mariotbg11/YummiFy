@@ -1,6 +1,7 @@
 import NavbarWithSearch from "./components/Navbar";
 import Hero from "./components/Hero";
 import CardList from "./components/CardList";
+import AccordionFAQ from "./components/AccordionFAQ";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <NavbarWithSearch />
       <Hero />
       <CardList />
+      <AccordionFAQ />
     </div>
   );
 }
