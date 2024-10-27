@@ -1,10 +1,10 @@
 import NavbarWithSearch from "./components/Navbar";
 import Hero from "./components/Hero";
-import CardList from "./components/CardList";
 import AccordionFAQ from "./components/AccordionFAQ";
 import Footer from "./components/Footer";
 import Newsletter from "./components/Newsletter";
 import Stats from "./components/Stats";
+import PopularRecipe from "./pages/PopularRecipe";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <NavbarWithSearch />
       <Hero />
       <Stats />
-      <CardList />
+      <PopularRecipe />
       <AccordionFAQ />
       <Newsletter />
       <Footer />

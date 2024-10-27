@@ -50,7 +50,7 @@ const stats = [
 
 function Stats() {
   return (
-    <section className="mt-40 container mx-auto">
+    <section className="my-40 container mx-auto">
       <div className="lg:mb-24 mb-10 px-4">
         <Typography
           color="blue-gray"
