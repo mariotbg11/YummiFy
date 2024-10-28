@@ -13,7 +13,7 @@ function PopularRecipe() {
   return (
     <div className="bg-white">
       <h2 className="text-4xl font-bold mb-14">Popular Recipe</h2>
-      <CardList />
+      <CardList type="popular" />
     </div>
   );
 }
