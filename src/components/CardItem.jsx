@@ -13,7 +13,7 @@ function CardItem({ image, title }) {
   return (
     <Card className="w-full shadow-lg rounded-lg">
       <CardHeader floated={false} color="blue-gray" className="rounded-lg">
-        <img src={image} alt={title} />
+        <img src={image} alt={title} className="w-full object-cover" />
         <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-tr from-transparent via-transparent to-black/60 " />
         <IconButton
           size="sm"
@@ -36,7 +36,7 @@ function CardItem({ image, title }) {
           <Typography
             variant="h6"
             color="blue-gray"
-            className="font-medium h-[52px]"
+            className="font-medium h-[52px] w-full line-clamp-2"
           >
             {title}
           </Typography>

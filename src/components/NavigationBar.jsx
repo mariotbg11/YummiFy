@@ -16,6 +16,7 @@ import {
   faBookBookmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 function NavigationBar() {
   const [openNav, setOpenNav] = React.useState(false);
@@ -36,9 +37,9 @@ function NavigationBar() {
         className="flex items-center gap-x-2 p-1 font-medium"
       >
         <FontAwesomeIcon icon={faBowlRice} color="#90A4AE" />
-        <a href="#" className="flex items-center">
+        <Link to="/main-course" className="flex items-center">
           Main Course
-        </a>
+        </Link>
       </Typography>
       <Typography
         as="li"
