@@ -17,7 +17,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function NavbarWithSearch() {
+function Navbar() {
   const [openNav, setOpenNav] = React.useState(false);
 
   React.useEffect(() => {
@@ -212,3 +212,5 @@ export default function NavbarWithSearch() {
     </Navbar>
   );
 }
+
+export default Navbar;
