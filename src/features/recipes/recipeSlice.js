@@ -18,7 +18,7 @@ export const fetchMainCourseRecipe = createAsyncThunk(
   "recipes/fetchMainCourseRecipe",
   async () => {
     const apiKey = import.meta.env.VITE_RECIPE_API_KEY;
-    const url = `https://api.spoonacular.com/recipes/complexSearch?type=main course&fillIngredients=true&addRecipeInformation=true&addRecipeInstructions=true&addRecipeNutrition=true&apiKey=${apiKey}`;
+    const url = `https://api.spoonacular.com/recipes/complexSearch?type=main course&fillIngredients=true&addRecipeInformation=true&addRecipeInstructions=true&addRecipeNutrition=true&number=16&apiKey=${apiKey}`;
 
     const res = await fetch(url);
     const data = await res.json();
