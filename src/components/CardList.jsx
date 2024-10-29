@@ -2,15 +2,23 @@ import { useSelector } from "react-redux";
 import CardItem from "./CardItem";
 
 function CardList({ type }) {
-  const { popularRecipe, mainCourseRecipe, dessertRecipe, loading, error } =
-    useSelector((state) => state.recipes);
+  const {
+    popularRecipe,
+    mainCourseRecipe,
+    dessertRecipe,
+    drinkRecipe,
+    loading,
+    error,
+  } = useSelector((state) => state.recipes);
 
   const dataRecipe =
     type === "popular"
       ? popularRecipe
       : type === "maincourse"
       ? mainCourseRecipe
-      : dessertRecipe;
+      : type === "dessert"
+      ? dessertRecipe
+      : drinkRecipe;
 
   return (
     <div className="w-full">

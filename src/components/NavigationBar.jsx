@@ -59,9 +59,9 @@ function NavigationBar() {
         className="flex items-center gap-x-2 p-1 font-medium"
       >
         <FontAwesomeIcon icon={faMartiniGlassCitrus} color="#90A4AE" />
-        <a href="#" className="flex items-center">
+        <Link to="/drink" className="flex items-center">
           Drink
-        </a>
+        </Link>
       </Typography>
       <Typography
         as="li"
