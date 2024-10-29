@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import PopularRecipe from "./pages/PopularRecipe";
 import MainCourseRecipe from "./pages/MainCourseRecipe";
+import DessertRecipe from "./pages/DessertRecipe";
 import HomeLayout from "./layout/HomeLayout";
 import MenuRecipeLayout from "./layout/MenuRecipeLayout";
 
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/main-course",
         element: <MainCourseRecipe />, // Route to Main Course Recipe
+      },
+      {
+        path: "/dessert",
+        element: <DessertRecipe />, // Route to Dessert Recipe
       },
     ],
   },
