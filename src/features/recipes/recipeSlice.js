@@ -26,11 +26,25 @@ export const fetchMainCourseRecipe = createAsyncThunk(
   }
 );
 
+// fetching Dessert recipe
+export const fetchDessertRecipe = createAsyncThunk(
+  "recipes/fetchDessertRecipe",
+  async () => {
+    const apiKey = import.meta.env.VITE_RECIPE_API_KEY;
+    const url = `https://api.spoonacular.com/recipes/complexSearch?type=dessert&fillIngredients=true&addRecipeInformation=true&addRecipeInstructions=true&addRecipeNutrition=true&number=16&apiKey=${apiKey}`;
+
+    const res = await fetch(url);
+    const data = await res.json();
+    return data.results;
+  }
+);
+
 export const recipeSlice = createSlice({
   name: "recipes",
   initialState: {
     popularRecipe: [],
     mainCourseRecipe: [],
+    dessertRecipe: [],
     loading: false,
     error: null,
   },
@@ -63,10 +77,29 @@ export const recipeSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       });
+
+    //Handle for Dessert Recipe
+    builder
+      .addCase(fetchDessertRecipe.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchDessertRecipe.fulfilled, (state, action) => {
+        state.loading = false;
+        state.dessertRecipe = action.payload;
+      })
+      .addCase(fetchDessertRecipe.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      });
   },
 });
 
-export const { popularRecipe, mainCourseRecipe, loading, error } =
-  recipeSlice.actions;
+export const {
+  popularRecipe,
+  mainCourseRecipe,
+  dessertRecipe,
+  loading,
+  error,
+} = recipeSlice.actions;
 
 export default recipeSlice.reducer;
