@@ -3,6 +3,7 @@ import PopularRecipe from "./pages/PopularRecipe";
 import MainCourseRecipe from "./pages/MainCourseRecipe";
 import DessertRecipe from "./pages/DessertRecipe";
 import DrinkRecipe from "./pages/DrinkRecipe";
+import SavedRecipe from "./pages/SavedRecipe";
 import HomeLayout from "./layout/HomeLayout";
 import MenuRecipeLayout from "./layout/MenuRecipeLayout";
 
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/drink",
         element: <DrinkRecipe />, // Route to Drink Recipe
+      },
+      {
+        path: "/saved",
+        element: <SavedRecipe />, // Route to Saved Recipe
       },
     ],
   },

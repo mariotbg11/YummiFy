@@ -1,5 +1,7 @@
 import { useSelector } from "react-redux";
 import CardItem from "./CardItem";
+import SpinnerLoading from "./SpinnerLoading";
+import ErrorAlert from "./ErrorAlert";
 
 function CardList({ type }) {
   const {
@@ -20,11 +22,34 @@ function CardList({ type }) {
       ? dessertRecipe
       : drinkRecipe;
 
+  if (loading) {
+    return (
+      <div className="flex flex-col justify-center items-center h-[600px]">
+        <SpinnerLoading />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex flex-col justify-center items-center  h-[600px] w-full md:w-[700px] mx-auto">
+        <div className="w-full text-center rounded-lg">
+          <ErrorAlert />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="w-full">
       <div className="container grid grid-cols-1 md:grid-cols-4 gap-x-4 gap-y-8">
         {dataRecipe.map((recipe) => (
-          <CardItem key={recipe.id} image={recipe.image} title={recipe.title} />
+          <CardItem
+            key={recipe.id}
+            image={recipe.image}
+            title={recipe.title}
+            recipeId={recipe.id}
+          />
         ))}
       </div>
     </div>
