@@ -70,9 +70,9 @@ function NavigationBar() {
         className="flex items-center gap-x-2 p-1 font-medium"
       >
         <FontAwesomeIcon icon={faBookBookmark} color="#90A4AE" />
-        <a href="#" className="flex items-center">
+        <Link to="/saved" className="flex items-center">
           Saved
-        </a>
+        </Link>
       </Typography>
     </ul>
   );

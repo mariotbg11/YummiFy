@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import {
   Card,
   CardHeader,
@@ -8,27 +9,64 @@ import {
   Tooltip,
   IconButton,
 } from "@material-tailwind/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart as regularHeart } from "@fortawesome/free-regular-svg-icons";
 
-function CardItem({ image, title }) {
+function CardItem({ image, title, recipeId, onDelete }) {
+  const [isHearted, setIsHearted] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    // Check the recipes in the localStorage
+    const savedRecipes = JSON.parse(localStorage.getItem("savedRecipes")) || [];
+    const hearted = savedRecipes.some((recipe) => recipe.recipeId === recipeId);
+    setIsHearted(hearted);
+  }, [recipeId]);
+
+  const handleSaveRecipe = () => {
+    let savedRecipes = JSON.parse(localStorage.getItem("savedRecipes")) || [];
+
+    if (isHearted) {
+      // If the recipe hearted, delete from localStorage
+      savedRecipes = savedRecipes.filter(
+        (recipe) => recipe.recipeId !== recipeId
+      );
+      localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
+      setModalMessage("Recipe removed from saved!"); // Show modal removed from Page Saved
+      if (onDelete) {
+        onDelete(recipeId); // Call onDelete function for updating recipes list on Page Saved
+      }
+    } else {
+      // Add news to localStorage savedRecipes
+      const recipeToSave = { image, title, recipeId };
+      savedRecipes.push(recipeToSave);
+      localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
+      setModalMessage("Recipe added to saved"); // Show modal added to Page Saved
+    }
+
+    setIsHearted(!isHearted); // Toggle icon heart
+    setShowModal(true); // Show modal when click icon heart
+  };
+
   return (
     <Card className="w-full shadow-lg rounded-lg">
       <CardHeader floated={false} color="blue-gray" className="rounded-lg">
-        <img src={image} alt={title} className="w-full object-cover" />
+        <img
+          src={image}
+          alt={title}
+          className="w-full object-cover h-[190px]"
+        />
         <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-tr from-transparent via-transparent to-black/60 " />
         <IconButton
           size="sm"
           color="red"
           variant="text"
-          className="!absolute top-4 right-4 rounded-full"
+          className="!absolute top-1 right-2  text-xl"
+          onClick={handleSaveRecipe}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            className="h-6 w-6"
-          >
-            <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
-          </svg>
+          <FontAwesomeIcon icon={isHearted ? solidHeart : regularHeart} />
         </IconButton>
       </CardHeader>
       <CardBody>
@@ -96,6 +134,22 @@ function CardItem({ image, title }) {
           See Recipe
         </Button>
       </CardFooter>
+
+      {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-30">
+          <div className="bg-white w-full lg:w-1/4 mx-3 px-6 py-6 rounded-lg">
+            <p className="text-sm py-4">{modalMessage}</p>
+            <div className="flex justify-end">
+              <button
+                onClick={() => setShowModal(false)}
+                className="mt-4 px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-900"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </Card>
   );
 }
