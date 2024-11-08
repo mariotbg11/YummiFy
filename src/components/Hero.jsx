@@ -1,7 +1,31 @@
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { fetchSearchRecipe } from "../features/recipes/recipeSlice";
 import { Button, Typography, Input } from "@material-tailwind/react";
 import heroImg from "../assets/images/hero.jpg";
 
 function Hero() {
+  const [foodKeywordSearch, setFoodKeywordSearch] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearchRecipe = (e) => {
+    e.preventDefault();
+    if (foodKeywordSearch.trim()) {
+      navigate(`/search/${foodKeywordSearch}`);
+      setFoodKeywordSearch("");
+    }
+  };
+
+  const { foodKeyword } = useParams();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (foodKeyword) {
+      dispatch(fetchSearchRecipe(foodKeyword));
+    }
+  }, [dispatch, foodKeyword]);
+
   return (
     <>
       <header className="bg-white md:py-4">
@@ -28,12 +52,25 @@ function Hero() {
               recipe, we’ve got you covered!
             </Typography>
             <div className="mt-8 grid w-full place-items-start md:justify-center">
-              <div className="flex w-full flex-col gap-2 md:flex-row">
-                <Input color="gray" label="Search for a recipe" size="lg" />
-                <Button color="gray" className="w-full px-4 md:w-[12rem]">
+              <form
+                onSubmit={handleSearchRecipe}
+                className="flex w-full flex-col gap-2 md:flex-row"
+              >
+                <Input
+                  value={foodKeywordSearch}
+                  onChange={(e) => setFoodKeywordSearch(e.target.value)}
+                  color="gray"
+                  label="Search for a recipe"
+                  size="lg"
+                />
+                <Button
+                  type="submit"
+                  color="gray"
+                  className="w-full px-4 md:w-[12rem]"
+                >
                   Find Recipe!
                 </Button>
-              </div>
+              </form>
             </div>
           </div>
         </div>
