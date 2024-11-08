@@ -6,6 +6,7 @@ import DrinkRecipe from "./pages/DrinkRecipe";
 import SavedRecipe from "./pages/SavedRecipe";
 import HomeLayout from "./layout/HomeLayout";
 import MenuRecipeLayout from "./layout/MenuRecipeLayout";
+import SearchRecipe from "./pages/SearchRecipe";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/saved",
         element: <SavedRecipe />, // Route to Saved Recipe
+      },
+      {
+        path: "/search/:foodKeyword",
+        element: <SearchRecipe />,
       },
     ],
   },

@@ -9,6 +9,7 @@ function CardList({ type }) {
     mainCourseRecipe,
     dessertRecipe,
     drinkRecipe,
+    searchRecipe,
     loading,
     error,
   } = useSelector((state) => state.recipes);
@@ -20,7 +21,9 @@ function CardList({ type }) {
       ? mainCourseRecipe
       : type === "dessert"
       ? dessertRecipe
-      : drinkRecipe;
+      : type === "drink"
+      ? drinkRecipe
+      : searchRecipe;
 
   if (loading) {
     return (
