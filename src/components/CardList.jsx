@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import CardItem from "./CardItem";
 import SpinnerLoading from "./SpinnerLoading";
 import ErrorAlert from "./ErrorAlert";
+import imgPlaceholder from "../assets/images/img_placeholder.jpg";
 
 function CardList({ type }) {
   const {
@@ -49,7 +50,11 @@ function CardList({ type }) {
         {dataRecipe.map((recipe) => (
           <CardItem
             key={recipe.id}
-            image={recipe.image}
+            image={
+              recipe.image && recipe.image.length > 0
+                ? recipe.image
+                : imgPlaceholder
+            }
             title={recipe.title}
             recipeId={recipe.id}
           />
