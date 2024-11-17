@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Card,
   CardHeader,
@@ -48,6 +49,12 @@ function CardItem({ image, title, recipeId, onDelete }) {
 
     setIsHearted(!isHearted); // Toggle icon heart
     setShowModal(true); // Show modal when click icon heart
+  };
+
+  const navigate = useNavigate();
+
+  const handleSeeRecipe = () => {
+    navigate(`/recipe/${recipeId}`); // Menggunakan recipe.id dari data API
   };
 
   return (
@@ -130,7 +137,7 @@ function CardItem({ image, title, recipeId, onDelete }) {
         </div>
       </CardBody>
       <CardFooter className="pt-3 pb-4">
-        <Button size="md" fullWidth={true}>
+        <Button onClick={handleSeeRecipe} size="md" fullWidth={true}>
           See Recipe
         </Button>
       </CardFooter>

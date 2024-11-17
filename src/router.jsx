@@ -7,6 +7,7 @@ import SavedRecipe from "./pages/SavedRecipe";
 import HomeLayout from "./layout/HomeLayout";
 import MenuRecipeLayout from "./layout/MenuRecipeLayout";
 import SearchRecipe from "./pages/SearchRecipe";
+import DetailRecipe from "./pages/DetailRecipe";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
     ],
   },
   {
-    element: <MenuRecipeLayout />, // Layout Menu Recipe (Main Course, Dessert, Drink, Saved)
+    element: <MenuRecipeLayout />, // Layout Menu Recipe (Main Course, Dessert, Drink, Saved, Detail)
     children: [
       {
         path: "/main-course",
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "/search/:foodKeyword",
         element: <SearchRecipe />,
+      },
+      {
+        path: "recipe/:recipeId",
+        element: <DetailRecipe />,
       },
     ],
   },
