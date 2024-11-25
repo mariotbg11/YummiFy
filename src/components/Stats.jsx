@@ -5,13 +5,15 @@ function StatsCard({ count, title, description }) {
     <Card color="transparent" shadow={false}>
       <Typography
         variant="gradient"
-        className="text-4xl font-bold"
-        color="blue-gray"
+        className="text-4xl font-bold text-blue-gray-900 dark:text-[#FFFFFF]"
       >
         {count}
       </Typography>
       <hr className="mt-2 mb-4 max-w-sm" />
-      <Typography variant="h5" color="blue-gray" className="mt-1 font-bold">
+      <Typography
+        variant="h5"
+        className="mt-1 font-bold text-blue-gray-900 dark:text-[#FFFFFF]"
+      >
         {title}
       </Typography>
       <Typography className="text-base max-w-xs font-normal leading-7 !text-gray-500">
@@ -50,12 +52,9 @@ const stats = [
 
 function Stats() {
   return (
-    <section className="my-40 container mx-auto">
+    <section className="bg-white dark:bg-[#121212] transition-colors duration-300 my-40 container mx-auto">
       <div className="lg:mb-24 mb-10 px-4">
-        <Typography
-          color="blue-gray"
-          className="mb-4 !text-2xl font-bold lg:!text-4xl"
-        >
+        <Typography className="mb-4 text-blue-gray-900 dark:text-[#FFFFFF] !text-2xl font-bold lg:!text-4xl">
           The Recipe Hub Trusted by Foodies!
         </Typography>
         <Typography variant="lead" className="w-w-full !text-gray-500 max-w-xl">
@@ -65,7 +64,7 @@ function Stats() {
       </div>
       <div className="grid gap-10 lg:grid-cols-1 lg:gap-24 xl:grid-cols-2 items-center">
         <Card
-          className="bg-gray-100/50 py-24 text-center px-4 rounded-lg"
+          className="bg-gray-100/50 dark:bg-[#181818] py-24 text-center px-4 rounded-lg"
           shadow={false}
         >
           <Typography
@@ -74,13 +73,17 @@ function Stats() {
           >
             500,000+
           </Typography>
-          <Typography variant="h5" color="blue-gray" className="mt-2 font-bold">
+          <Typography
+            variant="h5"
+            color="blue-gray"
+            className="mt-2 font-bold text-blue-gray-900 dark:text-[#FFFFFF]"
+          >
             Satisfied Home Cooks Member
           </Typography>
           <Typography
             variant="h4"
             color="blue-gray"
-            className="mt-10 font-bold"
+            className="mt-10 font-bold text-blue-gray-900 dark:text-[#FFFFFF]"
           >
             Happy Cooks
           </Typography>

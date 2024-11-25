@@ -25,7 +25,7 @@ function AccordionFAQ() {
         >
           What is Material Tailwind?
         </AccordionHeader>
-        <AccordionBody className="pt-0 text-base font-normal">
+        <AccordionBody className="pt-0 text-base dark:text-gray-500 font-normal">
           We&apos;re not always in the position that we want to be at.
           We&apos;re constantly growing. We&apos;re constantly making mistakes.
           We&apos;re constantly trying to express ourselves and actualize our
@@ -44,7 +44,7 @@ function AccordionFAQ() {
         >
           How to use Material Tailwind?
         </AccordionHeader>
-        <AccordionBody className="pt-0 text-base font-normal">
+        <AccordionBody className="pt-0 text-base dark:text-gray-500 font-normal">
           We&apos;re not always in the position that we want to be at.
           We&apos;re constantly growing. We&apos;re constantly making mistakes.
           We&apos;re constantly trying to express ourselves and actualize our
@@ -63,7 +63,7 @@ function AccordionFAQ() {
         >
           What can I do with Material Tailwind?
         </AccordionHeader>
-        <AccordionBody className="pt-0 text-base font-normal">
+        <AccordionBody className="pt-0 text-base dark:text-gray-500 font-normal">
           We&apos;re not always in the position that we want to be at.
           We&apos;re constantly growing. We&apos;re constantly making mistakes.
           We&apos;re constantly trying to express ourselves and actualize our

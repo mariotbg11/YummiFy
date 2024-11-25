@@ -47,7 +47,7 @@ function DetailRecipe() {
   }
 
   return (
-    <div className="bg-white mt-36 mb-40">
+    <div className="bg-white dark:bg-[#121212] transition-colors duration-300 mt-36 mb-40">
       <div className="mx-auto w-full md:w-3/4">
         {detailRecipe ? (
           <>
@@ -65,9 +65,9 @@ function DetailRecipe() {
             />
             <p
               dangerouslySetInnerHTML={{ __html: modifiedSummary }}
-              className="text-justify bg-green-50 p-4 md:p-10 rounded-lg"
+              className="text-justify bg-green-50 dark:bg-[#181818] p-4 md:p-10 rounded-lg"
             ></p>
-            {/* <p>${(detailRecipe.pricePerServing / 100).toFixed(2)}</p> */}
+
             {detailRecipe.extendedIngredients && (
               <div className="mt-14">
                 <h2 className="text-2xl font-semibold mb-4">Ingredients</h2>
@@ -88,21 +88,23 @@ function DetailRecipe() {
             {detailRecipe.analyzedInstructions?.[0]?.steps && (
               <div className="mt-14">
                 <h2 className="text-2xl font-semibold mb-4">Instructions</h2>
-                <ol>
-                  {detailRecipe.analyzedInstructions[0].steps.map(
-                    (instruction) => (
-                      <li
-                        key={instruction.id}
-                        className="flex items-center gap-x-2 py-2 text-justify"
-                      >
-                        <span className=" px-4 py-2 bg-green-50 rounded-full">
-                          {instruction.number}
-                        </span>{" "}
-                        {instruction.step}
-                      </li>
-                    )
-                  )}
-                </ol>
+                <div className="bg-green-50 dark:bg-[#181818] p-4 md:p-10 rounded-lg">
+                  <ol>
+                    {detailRecipe.analyzedInstructions[0].steps.map(
+                      (instruction) => (
+                        <li
+                          key={instruction.id}
+                          className="flex items-center gap-x-2 py-2 text-justify"
+                        >
+                          <span className="flex justify-center items-center h-[39.5px] w-[40px] px-4 py-2 bg-gray-300 dark:bg-green-50 rounded-full text-black">
+                            {instruction.number}
+                          </span>{" "}
+                          {instruction.step}
+                        </li>
+                      )
+                    )}
+                  </ol>
+                </div>
               </div>
             )}
 
@@ -112,7 +114,7 @@ function DetailRecipe() {
                 href={detailRecipe.sourceUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600"
+                style={{ color: "blue" }}
               >
                 {detailRecipe.creditsText}
               </a>

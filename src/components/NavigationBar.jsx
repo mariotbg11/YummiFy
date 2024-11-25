@@ -23,7 +23,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
-function NavigationBar() {
+function NavigationBar({ isDark }) {
   const [openNav, setOpenNav] = React.useState(false);
 
   React.useEffect(() => {
@@ -41,7 +41,10 @@ function NavigationBar() {
         color="blue-gray"
         className="flex items-center gap-x-2 p-1 font-medium"
       >
-        <FontAwesomeIcon icon={faBowlRice} color="#90A4AE" />
+        <FontAwesomeIcon
+          icon={faBowlRice}
+          color={isDark ? "#333333" : "#90A4AE"}
+        />
         <Link to="/main-course" className="flex items-center">
           Main Course
         </Link>
@@ -52,7 +55,10 @@ function NavigationBar() {
         color="blue-gray"
         className="flex items-center gap-x-2 p-1 font-medium"
       >
-        <FontAwesomeIcon icon={faStroopwafel} color="#90A4AE" />
+        <FontAwesomeIcon
+          icon={faStroopwafel}
+          color={isDark ? "#333333" : "#90A4AE"}
+        />
         <Link to="/dessert" className="flex items-center">
           Dessert
         </Link>
@@ -63,7 +69,10 @@ function NavigationBar() {
         color="blue-gray"
         className="flex items-center gap-x-2 p-1 font-medium"
       >
-        <FontAwesomeIcon icon={faMartiniGlassCitrus} color="#90A4AE" />
+        <FontAwesomeIcon
+          icon={faMartiniGlassCitrus}
+          color={isDark ? "#333333" : "#90A4AE"}
+        />
         <Link to="/drink" className="flex items-center">
           Drink
         </Link>
@@ -74,7 +83,10 @@ function NavigationBar() {
         color="blue-gray"
         className="flex items-center gap-x-2 p-1 font-medium"
       >
-        <FontAwesomeIcon icon={faBookBookmark} color="#90A4AE" />
+        <FontAwesomeIcon
+          icon={faBookBookmark}
+          color={isDark ? "#333333" : "#90A4AE"}
+        />
         <Link to="/saved" className="flex items-center">
           Saved
         </Link>
@@ -103,7 +115,7 @@ function NavigationBar() {
   }, [dispatch, foodKeyword]);
 
   return (
-    <Navbar className="sticky top-0 z-10 mx-auto w-full rounded-t-none shadow-md px-3 py-2 lg:px-5 lg:py-4">
+    <Navbar className="sticky top-4 z-10 mx-auto w-full shadow-md px-3 py-2 md:px-5 md:py-2">
       <div className="container mx-auto flex flex-wrap items-center justify-between text-blue-gray-900">
         <Typography
           as="a"
