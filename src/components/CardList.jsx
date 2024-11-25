@@ -45,7 +45,7 @@ function CardList({ type }) {
   }
 
   return (
-    <div className="w-full">
+    <div className="w-full bg-white dark:bg-[#121212] transition-colors duration-300">
       <div className="container grid grid-cols-1 md:grid-cols-4 gap-x-4 gap-y-8">
         {dataRecipe.map((recipe) => (
           <CardItem
@@ -56,6 +56,9 @@ function CardList({ type }) {
                 : imgPlaceholder
             }
             title={recipe.title}
+            price={recipe.pricePerServing}
+            cooks={recipe.readyInMinutes}
+            likes={recipe.aggregateLikes}
             recipeId={recipe.id}
           />
         ))}

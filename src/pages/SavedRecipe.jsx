@@ -18,7 +18,7 @@ function SavedRecipe() {
   };
 
   return (
-    <div className="bg-white mt-36 mb-40">
+    <div className="bg-white dark:bg-[#121212] transition-colors duration-300 mt-36 mb-40">
       <h2 className="text-4xl font-bold mb-14">Saved Recipe</h2>
       {savedRecipes.length > 0 ? (
         <div className="container grid grid-cols-1 md:grid-cols-4 gap-x-4 gap-y-8">
@@ -27,6 +27,9 @@ function SavedRecipe() {
               key={recipe.recipeId}
               image={recipe.image}
               title={recipe.title}
+              price={recipe.price}
+              cooks={recipe.cooks}
+              likes={recipe.likes}
               recipeId={recipe.recipeId}
               onDelete={handleDeleteRecipe}
             />
