@@ -9,13 +9,13 @@ import { ThemeProvider as MaterialThemeProvider } from "@material-tailwind/react
 import { ThemeProvider } from "./context/ThemeContext.jsx";
 
 createRoot(document.getElementById("root")).render(
-  // <StrictMode>
-  <Provider store={store}>
-    <ThemeProvider>
-      <MaterialThemeProvider>
-        <App />
-      </MaterialThemeProvider>
-    </ThemeProvider>
-  </Provider>
-  // </StrictMode>
+  <StrictMode>
+    <Provider store={store}>
+      <ThemeProvider>
+        <MaterialThemeProvider>
+          <App />
+        </MaterialThemeProvider>
+      </ThemeProvider>
+    </Provider>
+  </StrictMode>
 );
