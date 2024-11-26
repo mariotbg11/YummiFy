@@ -51,7 +51,7 @@ function DetailRecipe() {
       <div className="mx-auto w-full md:w-3/4">
         {detailRecipe ? (
           <>
-            <h1 className="text-4xl font-bold mb-14 text-center">
+            <h1 className="text-2xl lg:text-4xl font-bold mb-14 text-center">
               {detailRecipe.title}
             </h1>
             <img

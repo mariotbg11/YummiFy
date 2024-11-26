@@ -5,11 +5,11 @@ function StatsCard({ count, title, description }) {
     <Card color="transparent" shadow={false}>
       <Typography
         variant="gradient"
-        className="text-4xl font-bold text-blue-gray-900 dark:text-[#FFFFFF]"
+        className="text-3xl lg:text-4xl font-bold text-blue-gray-900 dark:text-[#FFFFFF]"
       >
         {count}
       </Typography>
-      <hr className="mt-2 mb-4 max-w-sm" />
+      <hr className="mt-2 mb-4 w-full" />
       <Typography
         variant="h5"
         className="mt-1 font-bold text-blue-gray-900 dark:text-[#FFFFFF]"
@@ -53,7 +53,7 @@ const stats = [
 function Stats() {
   return (
     <section className="bg-white dark:bg-[#121212] transition-colors duration-300 my-40 container mx-auto">
-      <div className="lg:mb-24 mb-10 px-4">
+      <div className="lg:mb-24 mb-10">
         <Typography className="mb-4 text-blue-gray-900 dark:text-[#FFFFFF] !text-2xl font-bold lg:!text-4xl">
           The Recipe Hub Trusted by Foodies!
         </Typography>
@@ -69,7 +69,7 @@ function Stats() {
         >
           <Typography
             variant="h1"
-            className="!text-green-500 !leading-snug text-5xl"
+            className="!text-green-500 !leading-snug text-4xl lg:text-5xl"
           >
             500,000+
           </Typography>
@@ -95,7 +95,7 @@ function Stats() {
             YummiFy for meal inspiration.
           </Typography>
         </Card>
-        <div className="px-4">
+        <div className="lg:px-4">
           <div className="grid lg:grid-cols-2 gap-10 gap-x-20">
             {stats.map((props, key) => (
               <StatsCard key={key} {...props} />

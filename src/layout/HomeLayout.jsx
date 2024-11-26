@@ -13,7 +13,7 @@ function HomeLayout() {
   const { isDark, toggleTheme } = useTheme();
 
   return (
-    <div className="max-w-screen-2xl mx-auto px-3">
+    <div className="max-w-screen-2xl mx-auto px-4">
       <NavigationBar isDark={isDark} />
       <DarkLightToggle isDark={isDark} toggleTheme={toggleTheme} />
       <Hero isDark={isDark} />
