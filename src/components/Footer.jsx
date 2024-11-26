@@ -66,8 +66,8 @@ function Footer() {
             className="mb-4 text-center font-normal text-blue-gray-900 dark:text-[#B3B3B3] md:mb-0"
           >
             &copy; {currentYear}{" "}
-            <a href="https://material-tailwind.com/">Material Tailwind</a>. All
-            Rights Reserved.
+            <a href="https://material-tailwind.com/">YummiFy</a>. All Rights
+            Reserved.
           </Typography>
           <div className="flex gap-4 text-blue-gray-900 dark:text-[#FFFFFF] sm:justify-center">
             <Typography

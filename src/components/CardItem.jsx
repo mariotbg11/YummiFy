@@ -66,7 +66,7 @@ function CardItem({ image, title, price, cooks, likes, recipeId, onDelete }) {
         <img
           src={image}
           alt={title}
-          className="w-full object-cover h-[190px]"
+          className="w-full object-cover h-[225px] lg:h-[190px]"
         />
         <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-tr from-transparent via-transparent to-black/60 " />
         <IconButton

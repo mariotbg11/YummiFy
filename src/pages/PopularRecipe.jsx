@@ -12,7 +12,7 @@ function PopularRecipe() {
 
   return (
     <div className="bg-white dark:bg-[#121212] transition-colors duration-300">
-      <h2 className="text-4xl font-bold mb-14">Popular Recipe</h2>
+      <h2 className="text-2xl lg:text-4xl font-bold mb-14">Popular Recipe</h2>
       <CardList type="popular" />
     </div>
   );

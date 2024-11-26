@@ -123,7 +123,7 @@ function NavigationBar({ isDark }) {
           className="flex items-center gap-2 mr-4 cursor-pointer py-1.5 text-xl font-bold"
         >
           <FontAwesomeIcon icon={faUtensils} color="#00FF00" />
-          YummiFy
+          <Link to="/">YummiFy</Link>
         </Typography>
         <div className="hidden lg:block">{navList}</div>
         <div className="hidden items-center gap-x-2 lg:flex">

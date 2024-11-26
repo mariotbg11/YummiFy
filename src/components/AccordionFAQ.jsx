@@ -12,7 +12,9 @@ function AccordionFAQ() {
 
   return (
     <div className="flex flex-col mx-auto my-40 w-full md:w-2/3">
-      <h2 className="text-center text-3xl font-semibold mb-6">FAQ</h2>
+      <h2 className="text-center text-2xl lg:text-3xl font-semibold mb-6">
+        FAQ
+      </h2>
       <Accordion
         open={open === 1}
         className="mb-2 rounded-lg border border-blue-gray-100 px-4"
